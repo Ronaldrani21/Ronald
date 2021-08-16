@@ -5,12 +5,12 @@
      $pass="";
      $database="Ronald";
      $conn= new mysqli($servername,$user,$pass,$database);
-     if($conn->error){
-         echo "DB error ".$conn->error."";
-     }
-     else{
-         echo "Connection successful";
-     }
+    //  if($conn->error){
+    //      echo "DB error ".$conn->error."";
+    //  }
+    //  else{
+    //      echo "Connection successful";
+    //  }
      ?>
     
 <!doctype html>
