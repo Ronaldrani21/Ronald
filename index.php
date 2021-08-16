@@ -1,3 +1,18 @@
+<?php
+     //my sqli
+     $servername="localhost";
+     $user="root";
+     $pass="";
+     $database="Ronald";
+     $conn= new mysqli($servername,$user,$pass,$database);
+    //  if($conn->error){
+    //      echo "DB error ".$conn->error."";
+    //  }
+    //  else{
+    //      echo "Connection successful";
+    //  }
+     ?>
+    
 <!doctype html>
 <html lang="en">
   <head>
@@ -548,8 +563,8 @@
 
           <div class="row justify-content-between">
             
-            <div class="col-md-6">
-              <form action="contact.php" method="POST" class="form-outline-style-v1">
+               <div class="col-md-6">
+              <form action="index.php" method="POST" class="form-outline-style-v1">
                 <div class="form-group row mb-0">
 
                   <div class="col-lg-6 form-group gsap-reveal">
@@ -573,6 +588,42 @@
                       <span class="submitting"></span>
                     </div>
                   </div>
+                  <?php
+     if(isset ($_POST['send'])){
+         
+         echo "<br>";
+     
+         $uname = $_POST['name'];
+         $mail = $_POST['email'];
+         $mess = $_POST['message'];
+         
+         
+         $sql = "insert into contact (Name,Email,Message) values ('$uname','$mail','$mess')";
+         
+         if($conn->query($sql)){
+             echo"Message sent successfully!";
+         }
+         else{
+             echo"Error is here: ".$conn->error;
+         }
+     }
+     
+     if(isset($_POST['display'])){
+     
+     
+         $sql = "select * from contact";
+     
+         $myquery = $conn->query($sql);
+         
+         while($result = $myquery->fetch_assoc()){
+             echo "<br>";
+             echo $result['Name']." ".$result['Email']." ".$result['Message'];
+             echo "<br>";
+         }
+
+     }
+     ?>
+     
               </form>
               <div id="form-message-warning" class="mt-4"></div> 
               <div id="form-message-success">
