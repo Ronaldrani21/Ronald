@@ -597,15 +597,20 @@
          $mail = $_POST['email'];
          $mess = $_POST['message'];
          
+         if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+          $sql = "insert into contact (Name,Email,Message) values ('$uname','$mail','$mess')";
+          if($conn->query($sql)){
+            echo"Message sent successfully!";
+        }
+        else{
+            echo"Error is here: ".$conn->error;
+        } 
+      }else{
+        echo"Invalid email";
+      }
+        
          
-         $sql = "insert into contact (Name,Email,Message) values ('$uname','$mail','$mess')";
-         
-         if($conn->query($sql)){
-             echo"Message sent successfully!";
-         }
-         else{
-             echo"Error is here: ".$conn->error;
-         }
+       
      }
      
      if(isset($_POST['display'])){
