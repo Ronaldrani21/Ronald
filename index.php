@@ -105,8 +105,8 @@
           <div class="row align-items-center">
               
             <div class="col-md-7 mx-auto text-center">
-              <h1 >Ronald</h1>
-              <h2 >I’m Ronald Ampeire, A Website Designer Based In Uganda</h2>
+              <h1 class="heading gsap-reveal-hero">Ronald</h1>
+              <h2 class="subheading gsap-reveal-hero">I’m Ronald Ampeire, A Website Designer Based In Uganda</h2>
             </div>
 
           </div>
